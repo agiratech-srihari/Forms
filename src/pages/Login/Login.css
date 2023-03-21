@@ -1,0 +1,26 @@
+.login{
+    height: 100%;
+    width:100%;
+    margin: 10% 0;
+}
+
+.login__container{
+    height: 80%;
+    margin:0 35%;
+    padding: 2rem;
+    border: 1px #ddd solid;
+}
+.fgtps{
+    text-align: end;
+    color: blue;
+    margin: 1rem 0rem;
+    cursor: pointer;
+    margin-left:.2rem ;
+}
+
+.form-cont{
+    margin: 1rem 0;
+}
+.signup-for-cont{
+    margin: 1rem;
+}

@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { Container } from '@mui/system';
 import RouterLayout from './router/RouterLayout';
- 
+
 const schema = yup.object().shape({
   list: yup.array().of(
     yup.object().shape({
@@ -13,60 +13,16 @@ const schema = yup.object().shape({
     })
   )
 });
- 
-const App = () => {
- 
-  // const [data, setData] = useState();
- 
-  // const { control, register, handleSubmit, formState: { errors } } = useForm({
-  //   defaultValues: {
-  //     list: [{ firstName: '', lastName: '' }]
-  //   },
-  //   resolver: yupResolver(schema)
-  // });
-  // const { fields, append, remove } = useFieldArray({
-  //   control,
-  //   name: "list"
-  // });
- 
-  // const onSave = data => {
-  //   setData({ ...data });
-  // }
- 
-  // return <form onSubmit={handleSubmit(onSave)}>
-  //   {/* <h4>Validate dynamic array form in React using React Hook Form - <a href="https://www.cluemediator.com/" target="_blank" rel="noopener noreferrer">Clue Mediator</a></h4> */}
-  //   {fields.map((field, index) => (
-  //     <div className="box" key={field.id}>
-  //       <div>
-  //         <input
-  //           placeholder="Enter First Name"
-  //           {...register(`list.${index}.firstName`)}
-  //         />
-  //         {errors?.list?.[index]?.firstName && <p>{errors?.list?.[index]?.firstName.message}</p>}
-  //       </div>
-  //       <div>
-  //         <input
-  //           className="ml10"
-  //           placeholder="Enter Last Name"
-  //           {...register(`list.${index}.lastName`)}
-  //         />
-  //         {errors?.list?.[index]?.lastName && <p>{errors?.list?.[index]?.lastName.message}</p>}
-  //       </div>
-  //       <div className="btn-box">
-  //         {fields.length !== 1 && <button
-  //           className="mr10"
-  //           onClick={() => remove(index)}>Remove</button>}
-  //         {fields.length - 1 === index && <button onClick={() => append({ firstName: '', lastName: '' })}>Add</button>}
-  //       </div>
-  //     </div>
-  //   ))}
-  //   <button>Submit</button>
-  //   {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
-  // </form>
 
-  return <Container maxWidth='xl'>
-    <RouterLayout/>
-  </Container>
+const App = () => {
+
+
+
+  return (
+    <div>
+      <RouterLayout />
+    </div>
+  )
 }
- 
+
 export default App;
