@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 
 
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import "./Login.css"
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Button, TextField } from "@mui/material";
+import { Button } from "@mui/material";
 import { loginSchema } from "../../helper/validation";
 import { InputTextField } from "../../helper/FormsInput";
 
@@ -54,49 +55,47 @@ function Login() {
   };
 
   return (
-    <div className="login">
 
-      <div className="login__container">
-        <h3 style={{ margin: "2rem 0" ,textAlign:'center'}}>Welcome Back!</h3>
-
-        <div style={{ display: "block" }}>
-          <form onSubmit={handleSubmit(submitHandler)}>
-            <div className="form-cont">
-
-          <InputTextField 
+      <Box sx={{ flexGrow: 1 }} style={{boxShadow: 'rgba(0, 0, 0, 0.15) 0px 2px 8px',margin:'12% 35%',padding:'1rem'}}>
+      <h3 style={{ margin: "2rem 0", textAlign: 'center' }}>Welcome Back!</h3>
+      <form onSubmit={handleSubmit(submitHandler)}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <InputTextField
                 name='email'
                 label='Email'
                 placeholder='Email'
                 control={control}
-                errors={errors.email}
-                style = {{width:'100%'}}
-                />
-                </div>
-            <div className="form-cont">
-            <InputTextField 
-                name={`password`}
-                label='Password'
+                errors={errors.email} />
+            </Grid>
+            <Grid item xs={12}>
+              <InputTextField
+                name='password'
                 placeholder='Password'
+                label='password'
                 control={control}
-                errors={errors.password}
-                style = {{width:'100%'}}
-                />
+                errors={errors.password} />
+            </Grid>
+          </Grid>
+          <Grid container style={{ marginTop: '2rem' }} spacing={2}>
+            <Grid item sm={12}>
+              <p onClick={handlePassword} style={{ textAlign: 'end', color: 'blue',cursor:'pointer' }}>
+                forgetpassword?
+              </p>
+            </Grid>
+            <Grid item sm={12}>
+              <Button variant="contained" type="submit" style={{ width: '100%',  }}>
+                Login
+              </Button>
+            </Grid>
 
-            </div>
+            <Grid item sm={12}>
+            <p>Don't have a account?<span onClick={handlesignup} style={{marginLeft:'.5rem',cursor:"pointer",color:'blue'}}>Sign-up</span></p>
+            </Grid>
+          </Grid>
+        </form>
+    </Box>
 
-            <p onClick={handlePassword} className="fgtps">
-              forgetpassword?
-            </p>
-            <Button variant="contained" type="submit" className="submit__button" style={{width:"100%" , margin:'1rem 0'}}>
-              Login
-            </Button>
-          </form>
-        </div>
-          <div className="signup-for-cont">
-          <p>Don't have a account?<span onClick={handlesignup} className="fgtps">Sign-up</span></p>
-          </div>
-      </div>
-    </div>
   );
 }
 

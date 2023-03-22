@@ -7,7 +7,7 @@ import axios from "axios";
 import { Button } from "@mui/material";
 import { signupSchema } from "../../helper/validation";
 import { InputTextField } from "../../helper/FormsInput";
-import { Container } from "@mui/material";
+
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
@@ -52,16 +52,14 @@ function Login() {
 
 
   return (
-<div style={{display: "flex",height: "100vh",alignItems: "center",justifyContent: "center"}}>
 
-    <Container maxWidth="sm" style={{boxShadow: 'rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px'}}>
 
-      <Box sx={{ flexGrow: 1 }} style={{}}>
+      <Box sx={{ flexGrow: 1 }} style={{boxShadow: 'rgba(0, 0, 0, 0.15) 0px 2px 8px',margin:'5% 20%',padding:'2% 5%'}}>
       <h3 style={{ margin: "2rem 0", textAlign: 'center' }}>Create An Account</h3>
 
       <form onSubmit={handleSubmit(submitHandler)}>
-      <Grid container  >
-        <Grid item xl={6} xs={12} style={{padding:"1rem"}}>
+      <Grid container  spacing={2}>
+        <Grid item xl={6} xs={12} >
         <InputTextField
                 name='firstName'
                 label='First Name'
@@ -70,7 +68,7 @@ function Login() {
                 errors={errors.firstName}
               />
         </Grid>
-        <Grid item xl={6} xs={12} style={{padding:"1rem"}}>
+        <Grid item xl={6} xs={12} >
         <InputTextField
                 name='lastName'
                 placeholder='Last Name'
@@ -80,7 +78,7 @@ function Login() {
                 
               />
         </Grid>
-        <Grid item xl={6} xs={12} style={{padding:"1rem"}}>
+        <Grid item xl={6} xs={12} >
         <InputTextField
                 name='email'
                 placeholder='Email'
@@ -89,7 +87,7 @@ function Login() {
                 errors={errors.email}
               />
         </Grid>
-        <Grid item xl={6} xs={12} style={{padding:"1rem"}}>
+        <Grid item xl={6} xs={12} >
         <InputTextField
                 name='mobileNumber'
                 placeholder='Phone Number'
@@ -99,7 +97,7 @@ function Login() {
               />
         
         </Grid>
-        <Grid item xl={6} xs={12} style={{padding:"1rem"}}>
+        <Grid item xl={6} xs={12} >
         <InputTextField
                 name='companyName'
                 placeholder='Company Name'
@@ -109,7 +107,7 @@ function Login() {
               />
           </Grid>
 
-        <Grid item xl={6} xs={12} style={{padding:"1rem"}}>
+        <Grid item xl={6} xs={12} >
         <InputTextField
                 name='address'
                 placeholder='Address'
@@ -119,7 +117,7 @@ function Login() {
               />
         </Grid>
 
-        <Grid item xl={6} xs={12} style={{padding:"1rem"}}>
+        <Grid item xl={6} xs={12} >
         <InputTextField
                 name='city'
                 placeholder='City'
@@ -129,7 +127,7 @@ function Login() {
               />
         </Grid>
 
-        <Grid item xl={6} xs={12} style={{padding:"1rem"}}>
+        <Grid item xl={6} xs={12} >
         <InputTextField
                 name='state'
                 placeholder='State'
@@ -138,7 +136,7 @@ function Login() {
                 errors={errors.state}
                 />         
         </Grid>
-        <Grid item xl={6} xs={12} style={{padding:"1rem"}}>
+        <Grid item xl={6} xs={12}>
         <InputTextField
                 name='country'
                 placeholder='Country'
@@ -147,7 +145,7 @@ function Login() {
                 errors={errors.country}
                 />         
         </Grid>
-        <Grid item xl={6} xs={12} style={{padding:"1rem"}}>
+        <Grid item xl={6} xs={12} >
         <InputTextField
                 name='pincode'
                 placeholder='Pincode'
@@ -156,7 +154,7 @@ function Login() {
                 errors={errors.pincode}
                 />         
         </Grid>
-        <Grid item xl={6} xs={12} style={{padding:"1rem"}}>
+        <Grid item xl={6} xs={12} >
         <InputTextField
                 name='password'
                 placeholder='Password'
@@ -165,7 +163,7 @@ function Login() {
                 errors={errors.password}
                 />         
         </Grid>
-        <Grid item xl={6} xs={12} style={{padding:"1rem"}}>
+        <Grid item xl={6} xs={12} >
         <InputTextField
                 name='confirmPassword'
                 placeholder='Confirm Password'
@@ -176,7 +174,7 @@ function Login() {
         </Grid>
    
         </Grid>
-        <Grid container spacing={2} style={{padding:"1rem"}}>
+        <Grid container style={{marginTop:'2rem'}} spacing={2}>
         <Grid item sm={12}>
         <Button variant="contained" type="submit"  style={{width:'80%',margin:'0 10%'}}>
               Create Account
@@ -184,18 +182,12 @@ function Login() {
         </Grid>
 
         <Grid item sm={12}>
-          <p style={{textAlign:'center'}}>Already have a account<span onClick={handlelogin} >Login in</span></p>
+          <p style={{textAlign:'center'}}>Already have a account<span onClick={handlelogin} style={{marginLeft:'.5rem',cursor:"pointer",color:'blue'}}>Login in</span></p>
         </Grid>
       </Grid>
       </form>
     </Box>
 
-
-
-    
-
-    </Container>
-                </div>
   );
 }
 

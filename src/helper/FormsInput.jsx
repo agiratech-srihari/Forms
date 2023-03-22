@@ -130,6 +130,7 @@ export const InputTextField = (props) => {
           {...field}
           error={errors}
           helperText={errors?.message}
+          fullWidth
         />
       )}
       />
@@ -175,8 +176,4 @@ export const InputRadioField = (props) => {
   )
 }
 
-function convertToIndianNumberFormat(input) {
-  const output = input.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ",");
-  return output;
-}
 
