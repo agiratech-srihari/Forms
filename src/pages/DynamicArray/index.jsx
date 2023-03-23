@@ -4,9 +4,7 @@ import DynamicFormArray from '../../components/DynamicFormArray'
 
 const index = () => {
   return (
-<div>
   <DynamicFormArray/>
-</div>
   )
 }
 

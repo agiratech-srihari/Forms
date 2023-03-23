@@ -1,11 +1,12 @@
-import React from 'react'
-import Box from '@mui/material/Box';
+import React ,{useState,useEffect}from 'react'
+import {Box} from '@mui/material'
 import Grid from '@mui/material/Grid';
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { InputTextField } from "../../helper/FormsInput";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { homeSchema } from '../../helper/validation';
 
 const index = () => {
   
@@ -18,7 +19,7 @@ const index = () => {
     reset,
     control
   } = useForm({
-    resolver: yupResolver(signupSchema),
+    resolver: yupResolver(homeSchema),
   });
 
 
@@ -48,7 +49,7 @@ const index = () => {
 
   return (
     <Box sx={{ flexGrow: 1 }} style={{boxShadow: 'rgba(0, 0, 0, 0.15) 0px 2px 8px',margin:'12% 35%',padding:'1rem'}}>
-    <h3 style={{ margin: "2rem 0", textAlign: 'center' }}>Welcome Back!</h3>
+    <h3 style={{ margin: "2rem 0", textAlign: 'center' }}>Start Booking!</h3>
     <form onSubmit={handleSubmit(submitHandler)}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
@@ -62,18 +63,13 @@ const index = () => {
           <Grid item xs={12}>
             <InputTextField
               name='to'
-              placeholder='to'
-              label='password'
+              placeholder='To'
+              label='To'
               control={control}
               errors={errors.password} />
           </Grid>
         </Grid>
         <Grid container style={{ marginTop: '2rem' }} spacing={2}>
-          <Grid item sm={12}>
-            <p onClick={handlePassword} style={{ textAlign: 'end', color: 'blue',cursor:'pointer' }}>
-              forgetpassword?
-            </p>
-          </Grid>
           <Grid item sm={12}>
             <Button variant="contained" type="submit" style={{ width: '100%',  }}>
               Book Ticket

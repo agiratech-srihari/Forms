@@ -11,7 +11,7 @@ import { InputTextField } from "../../helper/FormsInput";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
-function Login() {
+function signup() {
 
   const [response, setResponse] = useState({});
 
@@ -191,4 +191,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default signup;
