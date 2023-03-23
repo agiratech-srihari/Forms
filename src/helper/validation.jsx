@@ -82,3 +82,13 @@ export const signupSchema = yup.object().shape({
     .required("State is required")
   
 });
+
+
+export const homeSchema = yup.object().shape({
+  from: yup
+    .string()
+    .required("Please Update from Location"),
+  to: yup
+    .string()
+    .required("Please Update to Location"),
+});
