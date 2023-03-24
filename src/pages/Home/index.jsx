@@ -3,10 +3,12 @@ import {Box} from '@mui/material'
 import Grid from '@mui/material/Grid';
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { InputTextField } from "../../helper/FormsInput";
+import { InputTextField,DatePickerField } from "../../helper/FormsInput";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { homeSchema } from '../../helper/validation';
+import dayjs from 'dayjs';
+
 
 const index = () => {
   
@@ -46,6 +48,7 @@ const index = () => {
   const handlelogin = () => {
     navigate("/login");
   };
+  const maxDate = dayjs().add(1, 'month');
 
   return (
     <Box sx={{ flexGrow: 1 }} style={{boxShadow: 'rgba(0, 0, 0, 0.15) 0px 2px 8px',margin:'12% 35%',padding:'1rem'}}>
@@ -67,6 +70,16 @@ const index = () => {
               label='To'
               control={control}
               errors={errors.password} />
+          </Grid>
+          <Grid item xs={12}>
+            <DatePickerField
+              disablePast
+              maxDate = {maxDate}
+              name='date'
+              label='Journey Date'
+              control={control}
+              errors={errors.date}
+              />
           </Grid>
         </Grid>
         <Grid container style={{ marginTop: '2rem' }} spacing={2}>

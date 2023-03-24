@@ -1,4 +1,5 @@
 import * as yup from 'yup';
+import dayjs from 'dayjs';
 
 const passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,32}$/;
 
@@ -91,4 +92,20 @@ export const homeSchema = yup.object().shape({
   to: yup
     .string()
     .required("Please Update to Location"),
+  date: yup.string()
+    .nullable()
+    .required('Date is required')
+    .test('valid-date', 'Invalid date format', (value) => {
+      if (!value) {
+        return false;
+      }
+
+      const date = dayjs(value);
+
+      if (!date.isValid()) {
+        return false;
+      }
+
+      return true;
+     })
 });

@@ -5,7 +5,11 @@ import Autocomplete from "@mui/material/Autocomplete";
 import { FormControl, FormControlLabel, RadioGroup ,FormHelperText} from "@mui/material";
 import Radio from '@mui/material/Radio';
 import FormLabel from '@mui/material/FormLabel';
-
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import dayjs from "dayjs";
+import './FormInput.css'
 
 export const AutocompleteField = (props) => {
   const { control, options, name, multiple } = props;
@@ -176,4 +180,29 @@ export const InputRadioField = (props) => {
   )
 }
 
+
+export const DatePickerField = (props
+  ) => {
+  const { name, control, errors, label } = props
+  return (
+    <Controller
+    name={name}
+    control={control}
+    render={
+        ({ field }) =>
+        <LocalizationProvider
+        dateAdapter={AdapterDayjs}>
+            <DatePicker          
+                label={label}
+                {...props}
+                defaultValue={dayjs()}
+                {...field}
+                error={errors}
+            />
+          <FormHelperText style={{color:'#D32F2F',marginLeft:'1rem'}}>{errors?.message}</FormHelperText>
+        </LocalizationProvider>
+       }
+   />
+  );
+};
 
